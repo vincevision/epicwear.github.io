@@ -1249,3 +1249,12 @@ main { position: relative; z-index: 1; }
   .success__check circle, .success__check path { stroke-dashoffset: 0; }
   .cd-sep { opacity: 1; }
 }
+
+/* Flash-sale entry point — keeps the original launch experience intact. */
+.home-sale-banner { position:relative; z-index:2; margin-top:var(--nav-h); display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:12px 28px; padding:14px var(--pad); background:var(--ember); color:var(--bg); font:10px var(--f-mono); }
+.home-sale-banner strong { font-weight:500; }
+.home-sale-banner>span:first-child { font-weight:500; letter-spacing:.08em; }
+.home-sale-banner>span:last-child { text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:560px) { .home-sale-banner { gap:7px 15px; font-size:9px; text-align:center; } .home-sale-banner strong { flex-basis:100%; order:2; } }
+
+.nav__links .nav__sale { color:var(--ember); }
