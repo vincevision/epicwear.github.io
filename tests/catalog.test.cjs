@@ -6,6 +6,8 @@ const {createHash} = require('node:crypto');
 const root = path.resolve(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const products = JSON.parse(read('assets/data/flash-sale.json'));
+const generatedImages = JSON.parse(read('assets/data/generated-images.json'));
+const suppliedImages = JSON.parse(read('assets/data/supplied-images.json'));
 
 test('The Cute Edit contains 120 distinct designs, not separate colour cards', () => {
   assert.equal(products.length, 120);
@@ -26,7 +28,8 @@ test('Colour variants stay within a style, not in the catalogue grid', () => {
   const photos = products.filter(p => p.imageKind === 'photo');
   const drawings = products.filter(p => p.imageKind === 'illustration');
   assert.equal(photos.length, 12);
-  assert.equal(drawings.length, 108);
+  assert.equal(drawings.length + Object.keys(generatedImages).length + Object.keys(suppliedImages).length, 108);
+  assert.equal(products.filter(p => p.imageKind === 'ai-generated').length, Object.keys(generatedImages).length);
   assert.equal(new Set(photos.flatMap(p => p.variants.map(v => v.id))).size, 120);
   for (const p of photos) {
     assert.equal(p.variants.length, 10);
@@ -40,8 +43,9 @@ test('Colour variants stay within a style, not in the catalogue grid', () => {
   }
 });
 test('Original illustrations contain 108 distinct garment drawings, not renamed files', () => {
-  const artwork = products.filter(p => p.imageKind === 'illustration').map(p => {
-    const svg = read(p.image);
+  const artwork = products.filter(p => p.id.startsWith('EW-D')).map(p => {
+    // Keep original drawing sources even when generated imagery is shown instead.
+    const svg = read(`assets/img/sale/designs/design-${p.id.slice(4)}.svg`);
     assert.match(svg, /original garment illustration/);
     assert.match(svg, /not a product photograph/);
     // Compare garment shapes only: exclude names, IDs, backgrounds and palette.
@@ -49,6 +53,41 @@ test('Original illustrations contain 108 distinct garment drawings, not renamed 
     return createHash('sha256').update(drawing).digest('hex');
   });
   assert.equal(new Set(artwork).size, 108);
+});
+test('Generated replacements retain stable IDs, unique images and honest provenance', () => {
+  assert.ok(Object.keys(generatedImages).length >= 10);
+  for (const [id, image] of Object.entries(generatedImages)) {
+    const p = products.find(p => p.id === id);
+    assert.ok(p, id);
+    assert.equal(p.imageKind, 'ai-generated');
+    assert.equal(p.image, image);
+    assert.match(p.image, /^assets\/img\/sale\/generated\/design-\d{3}\.webp$/);
+    assert.match(p.description, /AI-generated/);
+    assert.match(p.description, /not a photograph of an existing item/);
+    assert.ok(fs.statSync(path.join(root, image)).size < 180 * 1024);
+  }
+  const js = read('assets/js/flash-sale.js');
+  assert.match(js, /AI-GENERATED INSPIRATION/);
+  assert.match(js, /AI-generated fashion image, not a real product photograph/);
+  assert.match(read('flash-sale.html'), /not photos of actual inventory/);
+});
+test('First eight replacements use supplied photos and matching garment details', () => {
+  const ids = ['EW-D001','EW-D019','EW-D037','EW-D055','EW-D073','EW-D091','EW-D002','EW-D020'];
+  assert.deepEqual(Object.keys(suppliedImages), ids);
+  const firstEight = products.filter(p => p.imageKind === 'supplied-photo').slice(0,8);
+  assert.deepEqual(firstEight.map(p => p.id), ids);
+  for (const id of ids) {
+    const p = products.find(p => p.id === id);
+    assert.equal(generatedImages[id], undefined);
+    for (const [key,value] of Object.entries(suppliedImages[id])) assert.deepEqual(p[key], value, `${id}: ${key}`);
+    assert.equal(p.imageKind, 'supplied-photo');
+    assert.match(p.description, /Supplied photo reference/);
+    assert.doesNotMatch(p.description, /AI-generated/);
+    assert.ok(p.image.startsWith('assets/img/sale/supplied/'));
+  }
+  assert.equal(firstEight[0].subtitle, 'Drawstring wide-leg lounge trousers');
+  assert.equal(firstEight[7].subtitle, 'Boat-neck crop & tie-wrap mini skirt');
+  assert.match(read('assets/js/flash-sale.js'), /SUPPLIED PHOTO REFERENCE/);
 });
 test('All catalogue images exist locally, have unique content and remain lightweight', () => {
   const images = new Set(products.map(p => p.image));

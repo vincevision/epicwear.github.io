@@ -865,13 +865,13 @@
   },
   {
     "id": "EW-D001",
-    "name": "Petal Picnic",
-    "subtitle": "Puff-sleeve tiered mini dress",
-    "category": "Dresses",
-    "image": "assets/img/sale/designs/design-001.svg",
-    "imageKind": "illustration",
-    "colour": "Blush",
-    "swatch": "#e6a4b5",
+    "name": "Easy Days",
+    "subtitle": "Drawstring wide-leg lounge trousers",
+    "category": "Bottoms",
+    "image": "assets/img/sale/supplied/ew-d001.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Butter",
+    "swatch": "#e4cd8f",
     "price": 500,
     "sizes": [
       "XS",
@@ -881,17 +881,34 @@
       "XL",
       "XXL"
     ],
-    "description": "Puff-sleeve tiered mini dress. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Soft full-length lounge trousers with a drawstring waist and roomy straight legs. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio.",
+    "variants": [
+      {
+        "id": "EW-D001-1",
+        "colour": "Butter",
+        "swatch": "#e4cd8f"
+      },
+      {
+        "id": "EW-D001-2",
+        "colour": "Grey",
+        "swatch": "#b7b7b7"
+      },
+      {
+        "id": "EW-D001-3",
+        "colour": "Onyx",
+        "swatch": "#28272b"
+      }
+    ]
   },
   {
     "id": "EW-D019",
-    "name": "Oat Milk",
-    "subtitle": "Cable-knit cropped crew sweater",
-    "category": "Knitwear",
-    "image": "assets/img/sale/designs/design-019.svg",
-    "imageKind": "illustration",
-    "colour": "Lilac",
-    "swatch": "#b6a4d4",
+    "name": "Little Bow Club",
+    "subtitle": "Ribbed bow cami & shorts set",
+    "category": "Matching sets",
+    "image": "assets/img/sale/supplied/ew-d019.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Mocha",
+    "swatch": "#b38e76",
     "price": 650,
     "sizes": [
       "XS",
@@ -901,17 +918,34 @@
       "XL",
       "XXL"
     ],
-    "description": "Cable-knit cropped crew sweater. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "A ribbed spaghetti-strap camisole and matching lounge shorts with contrasting bow details. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio.",
+    "variants": [
+      {
+        "id": "EW-D019-1",
+        "colour": "Mocha",
+        "swatch": "#b38e76"
+      },
+      {
+        "id": "EW-D019-2",
+        "colour": "Onyx",
+        "swatch": "#28272b"
+      },
+      {
+        "id": "EW-D019-3",
+        "colour": "Cloud",
+        "swatch": "#e4dfd3"
+      }
+    ]
   },
   {
     "id": "EW-D037",
-    "name": "Cargo Crush",
-    "subtitle": "Wide-leg cargo trousers",
+    "name": "Dot Daydream",
+    "subtitle": "Polka-dot drawstring lounge shorts",
     "category": "Bottoms",
-    "image": "assets/img/sale/designs/design-037.svg",
-    "imageKind": "illustration",
-    "colour": "Mocha",
-    "swatch": "#b38e76",
+    "image": "assets/img/sale/supplied/ew-d037.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Blush",
+    "swatch": "#e6a4b5",
     "price": 800,
     "sizes": [
       "XS",
@@ -921,17 +955,29 @@
       "XL",
       "XXL"
     ],
-    "description": "Wide-leg cargo trousers. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Easy elastic-waist shorts with small polka dots, side pockets and a drawstring tie. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio.",
+    "variants": [
+      {
+        "id": "EW-D037-1",
+        "colour": "Blush",
+        "swatch": "#e6a4b5"
+      },
+      {
+        "id": "EW-D037-2",
+        "colour": "Cloud",
+        "swatch": "#e4dfd3"
+      }
+    ]
   },
   {
     "id": "EW-D055",
-    "name": "Brunch Bestie",
-    "subtitle": "Tie-front blouse & tiered skirt",
+    "name": "Pink Pocket",
+    "subtitle": "Ribbed bodysuit & cargo shorts set",
     "category": "Matching sets",
-    "image": "assets/img/sale/designs/design-055.svg",
-    "imageKind": "illustration",
-    "colour": "Cherry",
-    "swatch": "#b84b65",
+    "image": "assets/img/sale/supplied/ew-d055.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Blush",
+    "swatch": "#e6a4b5",
     "price": 950,
     "sizes": [
       "XS",
@@ -941,16 +987,56 @@
       "XL",
       "XXL"
     ],
-    "description": "Tie-front blouse & tiered skirt. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "A ribbed sweetheart bodysuit paired with drawstring cargo shorts and oversized patch pockets. Bag and shoes in the reference are styling accessories, not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
   },
   {
     "id": "EW-D073",
-    "name": "Pilates Princess",
-    "subtitle": "Cross-back bra & flared leggings",
-    "category": "Activewear",
-    "image": "assets/img/sale/designs/design-073.svg",
-    "imageKind": "illustration",
-    "colour": "Cloud",
+    "name": "Wild Weekend",
+    "subtitle": "Leopard bandeau & shorts set",
+    "category": "Matching sets",
+    "image": "assets/img/sale/supplied/ew-d073.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Leopard",
+    "swatch": "#b38e76",
+    "price": 550,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A strapless leopard-print bandeau and matching relaxed shorts. Jewellery and other styling accessories in the reference are not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-D091",
+    "name": "Coastal Crochet",
+    "subtitle": "Striped tie-front halter & knit shorts",
+    "category": "Matching sets",
+    "image": "assets/img/sale/supplied/ew-d091.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Black & cream",
+    "swatch": "#e4dfd3",
+    "price": 700,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A black-and-cream striped knitted halter with a tie front and matching close-fitting shorts. Bag, flower and jewellery are styling accessories, not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-D002",
+    "name": "Seaside Star",
+    "subtitle": "Striped one-shoulder crop & knit shorts",
+    "category": "Matching sets",
+    "image": "assets/img/sale/supplied/ew-d002.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Black & cream",
     "swatch": "#e4dfd3",
     "price": 550,
     "sizes": [
@@ -961,55 +1047,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Cross-back bra & flared leggings. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
-  },
-  {
-    "id": "EW-D091",
-    "name": "Coral Crush",
-    "subtitle": "Triangle bikini & tie-side brief",
-    "category": "Swim & resort",
-    "image": "assets/img/sale/designs/design-091.svg",
-    "imageKind": "illustration",
-    "colour": "Sage",
-    "swatch": "#a8b795",
-    "price": 700,
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "description": "Triangle bikini & tie-side brief. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
-  },
-  {
-    "id": "EW-D002",
-    "name": "Midnight Slip",
-    "subtitle": "Cowl-neck satin midi slip",
-    "category": "Dresses",
-    "image": "assets/img/sale/designs/design-002.svg",
-    "imageKind": "illustration",
-    "colour": "Sage",
-    "swatch": "#a8b795",
-    "price": 550,
-    "sizes": [
-      "XS",
-      "S",
-      "M",
-      "L",
-      "XL",
-      "XXL"
-    ],
-    "description": "Cowl-neck satin midi slip. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "A striped one-shoulder knit crop with a decorative star-shaped front detail, paired with matching shorts. Bag, belt and jewellery are styling accessories, not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
   },
   {
     "id": "EW-D020",
-    "name": "Daisy Chain",
-    "subtitle": "Embroidered V-neck cardigan",
-    "category": "Knitwear",
-    "image": "assets/img/sale/designs/design-020.svg",
-    "imageKind": "illustration",
+    "name": "Blue Hour",
+    "subtitle": "Boat-neck crop & tie-wrap mini skirt",
+    "category": "Matching sets",
+    "image": "assets/img/sale/supplied/ew-d020.webp",
+    "imageKind": "supplied-photo",
     "colour": "Sky",
     "swatch": "#88b9d7",
     "price": 700,
@@ -1021,15 +1067,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Embroidered V-neck cardigan. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "A pale-blue ribbed wide-sleeve cropped top with a draped boat neckline and a matching wrap mini skirt with a long side tie. Jewellery in the reference is not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
   },
   {
     "id": "EW-D038",
     "name": "Ballet Errands",
     "subtitle": "Tie-waist parachute trousers",
     "category": "Bottoms",
-    "image": "assets/img/sale/designs/design-038.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-038.webp",
+    "imageKind": "ai-generated",
     "colour": "Butter",
     "swatch": "#e4cd8f",
     "price": 850,
@@ -1041,15 +1087,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Tie-waist parachute trousers. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Tie-waist parachute trousers. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D056",
     "name": "Linen Leisure",
     "subtitle": "Camp-collar shirt & shorts",
     "category": "Matching sets",
-    "image": "assets/img/sale/designs/design-056.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-056.webp",
+    "imageKind": "ai-generated",
     "colour": "Cobalt",
     "swatch": "#5a7dba",
     "price": 1000,
@@ -1061,15 +1107,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Camp-collar shirt & shorts. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Camp-collar shirt & shorts. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D074",
     "name": "Court Crush",
     "subtitle": "Racerback tank & tennis skirt",
     "category": "Activewear",
-    "image": "assets/img/sale/designs/design-074.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-074.webp",
+    "imageKind": "ai-generated",
     "colour": "Blush",
     "swatch": "#e6a4b5",
     "price": 600,
@@ -1081,15 +1127,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Racerback tank & tennis skirt. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Racerback tank & tennis skirt. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D092",
     "name": "Island Letter",
     "subtitle": "Ring-front bandeau & high-waist brief",
     "category": "Swim & resort",
-    "image": "assets/img/sale/designs/design-092.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-092.webp",
+    "imageKind": "ai-generated",
     "colour": "Lilac",
     "swatch": "#b6a4d4",
     "price": 750,
@@ -1101,15 +1147,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Ring-front bandeau & high-waist brief. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Ring-front bandeau & high-waist brief. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D003",
     "name": "Garden Party",
     "subtitle": "Wrap-front flutter midi dress",
     "category": "Dresses",
-    "image": "assets/img/sale/designs/design-003.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-003.webp",
+    "imageKind": "ai-generated",
     "colour": "Lilac",
     "swatch": "#b6a4d4",
     "price": 600,
@@ -1121,15 +1167,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Wrap-front flutter midi dress. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Wrap-front flutter midi dress. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D021",
     "name": "Honeycomb",
     "subtitle": "Ribbed sleeveless knit vest",
     "category": "Knitwear",
-    "image": "assets/img/sale/designs/design-021.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-021.webp",
+    "imageKind": "ai-generated",
     "colour": "Mocha",
     "swatch": "#b38e76",
     "price": 750,
@@ -1141,15 +1187,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Ribbed sleeveless knit vest. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Ribbed sleeveless knit vest. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D039",
     "name": "Denim Daydream",
     "subtitle": "Flared high-waist jeans",
     "category": "Bottoms",
-    "image": "assets/img/sale/designs/design-039.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-039.webp",
+    "imageKind": "ai-generated",
     "colour": "Cherry",
     "swatch": "#b84b65",
     "price": 900,
@@ -1161,15 +1207,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Flared high-waist jeans. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Flared high-waist jeans. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D057",
     "name": "Ballet Break",
     "subtitle": "Wrap crop & flared trousers",
     "category": "Matching sets",
-    "image": "assets/img/sale/designs/design-057.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-057.webp",
+    "imageKind": "ai-generated",
     "colour": "Cloud",
     "swatch": "#e4dfd3",
     "price": 500,
@@ -1181,15 +1227,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Wrap crop & flared trousers. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Wrap crop & flared trousers. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D075",
     "name": "Morning Miles",
     "subtitle": "Zip-neck tee & running shorts",
     "category": "Activewear",
-    "image": "assets/img/sale/designs/design-075.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-075.webp",
+    "imageKind": "ai-generated",
     "colour": "Sage",
     "swatch": "#a8b795",
     "price": 650,
@@ -1201,15 +1247,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Zip-neck tee & running shorts. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Zip-neck tee & running shorts. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D093",
     "name": "Palm Promise",
     "subtitle": "Halter one-piece swimsuit",
     "category": "Swim & resort",
-    "image": "assets/img/sale/designs/design-093.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-093.webp",
+    "imageKind": "ai-generated",
     "colour": "Sky",
     "swatch": "#88b9d7",
     "price": 800,
@@ -1221,15 +1267,15 @@
       "XL",
       "XXL"
     ],
-    "description": "Halter one-piece swimsuit. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Halter one-piece swimsuit. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D004",
     "name": "City Muse",
     "subtitle": "One-shoulder column maxi",
     "category": "Dresses",
-    "image": "assets/img/sale/designs/design-004.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-004.webp",
+    "imageKind": "ai-generated",
     "colour": "Sky",
     "swatch": "#88b9d7",
     "price": 650,
@@ -1241,15 +1287,15 @@
       "XL",
       "XXL"
     ],
-    "description": "One-shoulder column maxi. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "One-shoulder column maxi. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D022",
     "name": "Marshmallow",
     "subtitle": "Bardot balloon-sleeve sweater",
     "category": "Knitwear",
-    "image": "assets/img/sale/designs/design-022.svg",
-    "imageKind": "illustration",
+    "image": "assets/img/sale/generated/design-022.webp",
+    "imageKind": "ai-generated",
     "colour": "Butter",
     "swatch": "#e4cd8f",
     "price": 800,
@@ -1261,7 +1307,7 @@
       "XL",
       "XXL"
     ],
-    "description": "Bardot balloon-sleeve sweater. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing."
+    "description": "Bardot balloon-sleeve sweater. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
   },
   {
     "id": "EW-D040",
