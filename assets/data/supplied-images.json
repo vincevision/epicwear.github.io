@@ -1,0 +1,128 @@
+{
+  "EW-D001": {
+    "image": "assets/img/sale/supplied/ew-d001.webp",
+    "imageKind": "supplied-photo",
+    "name": "Easy Days",
+    "subtitle": "Drawstring wide-leg lounge trousers",
+    "category": "Bottoms",
+    "colour": "Butter",
+    "swatch": "#e4cd8f",
+    "description": "Soft full-length lounge trousers with a drawstring waist and roomy straight legs. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio.",
+    "variants": [
+      {
+        "id": "EW-D001-1",
+        "colour": "Butter",
+        "swatch": "#e4cd8f"
+      },
+      {
+        "id": "EW-D001-2",
+        "colour": "Grey",
+        "swatch": "#b7b7b7"
+      },
+      {
+        "id": "EW-D001-3",
+        "colour": "Onyx",
+        "swatch": "#28272b"
+      }
+    ]
+  },
+  "EW-D019": {
+    "image": "assets/img/sale/supplied/ew-d019.webp",
+    "imageKind": "supplied-photo",
+    "name": "Little Bow Club",
+    "subtitle": "Ribbed bow cami & shorts set",
+    "category": "Matching sets",
+    "colour": "Mocha",
+    "swatch": "#b38e76",
+    "description": "A ribbed spaghetti-strap camisole and matching lounge shorts with contrasting bow details. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio.",
+    "variants": [
+      {
+        "id": "EW-D019-1",
+        "colour": "Mocha",
+        "swatch": "#b38e76"
+      },
+      {
+        "id": "EW-D019-2",
+        "colour": "Onyx",
+        "swatch": "#28272b"
+      },
+      {
+        "id": "EW-D019-3",
+        "colour": "Cloud",
+        "swatch": "#e4dfd3"
+      }
+    ]
+  },
+  "EW-D037": {
+    "image": "assets/img/sale/supplied/ew-d037.webp",
+    "imageKind": "supplied-photo",
+    "name": "Dot Daydream",
+    "subtitle": "Polka-dot drawstring lounge shorts",
+    "category": "Bottoms",
+    "colour": "Blush",
+    "swatch": "#e6a4b5",
+    "description": "Easy elastic-waist shorts with small polka dots, side pockets and a drawstring tie. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio.",
+    "variants": [
+      {
+        "id": "EW-D037-1",
+        "colour": "Blush",
+        "swatch": "#e6a4b5"
+      },
+      {
+        "id": "EW-D037-2",
+        "colour": "Cloud",
+        "swatch": "#e4dfd3"
+      }
+    ]
+  },
+  "EW-D055": {
+    "image": "assets/img/sale/supplied/ew-d055.webp",
+    "imageKind": "supplied-photo",
+    "name": "Pink Pocket",
+    "subtitle": "Ribbed bodysuit & cargo shorts set",
+    "category": "Matching sets",
+    "colour": "Blush",
+    "swatch": "#e6a4b5",
+    "description": "A ribbed sweetheart bodysuit paired with drawstring cargo shorts and oversized patch pockets. Bag and shoes in the reference are styling accessories, not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
+  },
+  "EW-D073": {
+    "image": "assets/img/sale/supplied/ew-d073.webp",
+    "imageKind": "supplied-photo",
+    "name": "Wild Weekend",
+    "subtitle": "Leopard bandeau & shorts set",
+    "category": "Matching sets",
+    "colour": "Leopard",
+    "swatch": "#b38e76",
+    "description": "A strapless leopard-print bandeau and matching relaxed shorts. Jewellery and other styling accessories in the reference are not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
+  },
+  "EW-D091": {
+    "image": "assets/img/sale/supplied/ew-d091.webp",
+    "imageKind": "supplied-photo",
+    "name": "Coastal Crochet",
+    "subtitle": "Striped tie-front halter & knit shorts",
+    "category": "Matching sets",
+    "colour": "Black & cream",
+    "swatch": "#e4dfd3",
+    "description": "A black-and-cream striped knitted halter with a tie front and matching close-fitting shorts. Bag, flower and jewellery are styling accessories, not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
+  },
+  "EW-D002": {
+    "image": "assets/img/sale/supplied/ew-d002.webp",
+    "imageKind": "supplied-photo",
+    "name": "Seaside Star",
+    "subtitle": "Striped one-shoulder crop & knit shorts",
+    "category": "Matching sets",
+    "colour": "Black & cream",
+    "swatch": "#e4dfd3",
+    "description": "A striped one-shoulder knit crop with a decorative star-shaped front detail, paired with matching shorts. Bag, belt and jewellery are styling accessories, not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
+  },
+  "EW-D020": {
+    "image": "assets/img/sale/supplied/ew-d020.webp",
+    "imageKind": "supplied-photo",
+    "name": "Blue Hour",
+    "subtitle": "Boat-neck crop & tie-wrap mini skirt",
+    "category": "Matching sets",
+    "colour": "Sky",
+    "swatch": "#88b9d7",
+    "description": "A pale-blue ribbed wide-sleeve cropped top with a draped boat neckline and a matching wrap mini skirt with a long side tie. Jewellery in the reference is not included. Supplied photo reference; confirm actual garment, colour, measurements and availability with the studio."
+  }
+}

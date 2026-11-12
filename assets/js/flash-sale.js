@@ -21,7 +21,13 @@
   let detailId = null, chosenSize = '', chosenColour = '', toastTimer;
   const byId = id => products.find(p => p.id === id);
   const colourOptions = p => p.variants?.length ? p.variants.map(v => v.colour) : [p.colour];
-  const imageLabel = p => p.imageKind === 'illustration' ? 'ORIGINAL DESIGN ILLUSTRATION' : 'PHOTO STYLE REFERENCE';
+  const imageLabel = p => ({
+    'illustration': 'ORIGINAL DESIGN ILLUSTRATION',
+    'ai-generated': 'AI-GENERATED INSPIRATION',
+    'photo': 'PHOTO STYLE REFERENCE',
+    'supplied-photo': 'SUPPLIED PHOTO REFERENCE',
+  }[p.imageKind] || 'STYLE INSPIRATION');
+  const imageAlt = p => `${p.subtitle} — ${p.imageKind === 'ai-generated' ? 'AI-generated fashion image, not a real product photograph' : p.imageKind === 'illustration' ? 'original design illustration, not a product photo' : 'photo style reference, not an exact colour preview'}`;
   const notify = message => {
     $('#toast').textContent = message;
     $('#toast').classList.add('visible');
@@ -37,8 +43,8 @@
   function card(p, index) {
     return `<article class="product" data-id="${p.id}">
       <div class="product__visual"><button class="product__open" data-open="${p.id}" aria-label="View ${escape(p.name)}, ${escape(p.colour)}">
-        <img src="${p.image}" alt="${escape(p.subtitle)} — ${p.imageKind === 'illustration' ? 'original design illustration, not a product photo' : 'photo style reference, not an exact colour preview'}" width="360" height="480" loading="${index < 4 ? 'eager' : 'lazy'}" decoding="async"></button>
-        <span class="product__tag">${p.imageKind === 'illustration' ? 'DESIGN STUDY' : 'PHOTO INSPO'}</span><button class="product__heart" data-save="${p.id}" aria-label="${saved.has(p.id) ? 'Unsave' : 'Save'} ${escape(p.name)} in ${escape(p.colour)}" aria-pressed="${saved.has(p.id)}">${saved.has(p.id) ? '♥' : '♡'}</button>
+        <img src="${p.image}" alt="${escape(imageAlt(p))}" width="360" height="480" loading="${index < 4 ? 'eager' : 'lazy'}" decoding="async"></button>
+        <span class="product__tag">${p.imageKind === 'ai-generated' ? 'AI-GENERATED' : p.imageKind === 'illustration' ? 'DESIGN STUDY' : 'PHOTO INSPO'}</span><button class="product__heart" data-save="${p.id}" aria-label="${saved.has(p.id) ? 'Unsave' : 'Save'} ${escape(p.name)} in ${escape(p.colour)}" aria-pressed="${saved.has(p.id)}">${saved.has(p.id) ? '♥' : '♡'}</button>
         <span class="product__reference">${imageLabel(p)} / ${p.id}</span>
       </div>
       <div class="product__info"><p class="product__category">${escape(p.category)}</p><h3><button data-open="${p.id}">${escape(p.name)}</button></h3><p class="product__subtitle">${escape(p.subtitle)}</p>
@@ -118,7 +124,7 @@
     chosenSize = '';
     chosenColour = p.colour;
     const colours = colourOptions(p);
-    $('#productDetail').innerHTML = `<div class="detail-layout"><div class="detail-photo"><img src="${p.image}" alt="${escape(p.subtitle)} style inspiration"><p>${imageLabel(p)} / NOT A CONFIRMED PRODUCT</p></div>
+    $('#productDetail').innerHTML = `<div class="detail-layout"><div class="detail-photo"><img src="${p.image}" alt="${escape(imageAlt(p))}"><p>${imageLabel(p)} / NOT A CONFIRMED PRODUCT</p></div>
       <div class="detail-copy"><p class="eyebrow">${p.id} / ${escape(p.category)}</p><h2 id="detailName">${escape(p.name)}</h2><p class="product__subtitle">${escape(p.subtitle)}</p><span class="product__price">${money(p.price)}</span><p class="detail-description">${escape(p.description)}</p>
       <label class="product__colour" for="detailColour">Colour option <select id="detailColour">${colours.map(colour => `<option value="${escape(colour)}" ${colour === chosenColour ? 'selected' : ''}>${escape(colour)}</option>`).join('')}</select></label>
       <fieldset class="size-picker"><legend>Choose your size to enquire</legend><div class="size-options">${p.sizes.map(size => `<label><input type="radio" name="size" value="${size}" ${chosenSize === size ? 'checked' : ''}><span>${size}</span></label>`).join('')}</div></fieldset>
@@ -146,7 +152,7 @@
     }
     items.innerHTML = bag.map((row,index) => {
       const p = byId(row.id);
-      return `<article class="bag-item"><img src="${p.image}" alt="${escape(p.name)} style reference" width="70" height="95"><div><h3>${escape(p.name)}</h3><p>${escape(row.colour)} / ${row.size} / ${p.id}</p><p>${money(p.price)} each</p><div class="bag-item__actions"><div class="quantity"><button data-quantity="${index}" data-delta="-1" aria-label="Decrease ${escape(p.name)} quantity" ${row.quantity === 1 ? 'disabled' : ''}>−</button><span>${row.quantity}</span><button data-quantity="${index}" data-delta="1" aria-label="Increase ${escape(p.name)} quantity" ${row.quantity >= 10 ? 'disabled' : ''}>+</button></div><button class="remove-item" data-remove="${index}" aria-label="Remove ${escape(p.name)}, ${escape(row.colour)}, size ${row.size}">Remove</button></div></div></article>`;
+      return `<article class="bag-item"><img src="${p.image}" alt="${escape(imageAlt(p))}" width="70" height="95"><div><h3>${escape(p.name)}</h3><p>${escape(row.colour)} / ${row.size} / ${p.id}</p><p>${money(p.price)} each</p><div class="bag-item__actions"><div class="quantity"><button data-quantity="${index}" data-delta="-1" aria-label="Decrease ${escape(p.name)} quantity" ${row.quantity === 1 ? 'disabled' : ''}>−</button><span>${row.quantity}</span><button data-quantity="${index}" data-delta="1" aria-label="Increase ${escape(p.name)} quantity" ${row.quantity >= 10 ? 'disabled' : ''}>+</button></div><button class="remove-item" data-remove="${index}" aria-label="Remove ${escape(p.name)}, ${escape(row.colour)}, size ${row.size}">Remove</button></div></div></article>`;
     }).join('');
     const subtotal = bag.reduce((sum,row) => sum + byId(row.id).price * row.quantity, 0);
     $('#bagSummary').innerHTML = `<div class="bag-total"><span>Proposed subtotal</span><strong>${money(subtotal)}</strong></div><p class="detail-note">Delivery not included. Prices, colourways and availability need confirmation. This bag is an enquiry, not an order. Download or copy it to share with the studio.</p><button class="sale-button sale-button--primary" id="downloadEnquiry">Download enquiry <span>↓</span></button><button class="sale-button" id="copyEnquiry">Copy enquiry <span>↗</span></button><a href="index.html#contact" class="sale-button">Contact the studio <span>↗</span></a>`;
@@ -251,6 +257,13 @@
       saved.clear();
       migratedSaved.forEach(id => { if (byId(id)) saved.add(id); });
       $$('[data-catalog-count]').forEach(el => { el.textContent = products.length; });
+      const countsByKind = products.reduce((totals, p) => { totals[p.imageKind] = (totals[p.imageKind] || 0) + 1; return totals; }, {});
+      const imageSummary = [
+        (countsByKind.photo || countsByKind['supplied-photo']) && `${(countsByKind.photo || 0) + (countsByKind['supplied-photo'] || 0)} photo references`,
+        countsByKind['ai-generated'] && `${countsByKind['ai-generated']} AI-generated fashion images`,
+        countsByKind.illustration && `${countsByKind.illustration} garment illustrations`,
+      ].filter(Boolean).join(' + ');
+      $$('[data-image-summary]').forEach(el => { el.textContent = imageSummary; });
       persist();
       counts(); render();
       $('#bagOpen').disabled = false;

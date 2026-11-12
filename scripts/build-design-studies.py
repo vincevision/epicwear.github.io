@@ -1,6 +1,7 @@
 """Build original, dependency-free SVG garment studies. Never recolour photos.
 Run from the repository root: python3 scripts/build-design-studies.py
-The 12 supplied photo references remain separate from these 108 illustrations.
+The 12 supplied photo references remain separate from the 108 design studies.
+Generated-image overrides are preserved via assets/data/generated-images.json.
 """
 from pathlib import Path
 from html import escape
@@ -290,6 +291,8 @@ def illustration(name,subtitle,category,neck,sleeve,shape,detail,colour,swatch,n
 </svg>'''
 
 existing=json.loads(CATALOG.read_text())
+generated_manifest = ROOT / 'assets/data/generated-images.json'
+generated_images = json.loads(generated_manifest.read_text()) if generated_manifest.exists() else {}
 photos=[p for p in existing if p['id'] in [f'EW-{n:03}' for n in range(1,13)]]
 # On first run collapse the ten duplicate cards into a single style with variants.
 for p in photos:
@@ -307,9 +310,27 @@ for group_index,(category,designs) in enumerate(GROUPS.items()):
         image=f'assets/img/sale/designs/design-{number:03}.svg'
         (ROOT/image).write_text(illustration(name,subtitle,category,neck,sleeve,shape,detail,colour,swatch,number))
         new.append(dict(id=f'EW-D{number:03}',name=name,subtitle=subtitle,category=category,image=image,imageKind='illustration',colour=colour,swatch=swatch,price=500+50*((i+group_index*3)%11),sizes=['XS','S','M','L','XL','XXL'],description=f'{subtitle}. An original EPIC design study with its own cut and detailing. This illustration proposes a look; fabric, fit, stock and the final garment must be confirmed before purchasing.'))
+# Preserve generated product imagery when rebuilding the underlying design studies.
+for product in new:
+    if product['id'] in generated_images:
+        image = generated_images[product['id']]
+        if not (ROOT / image).is_file():
+            raise FileNotFoundError(f'Missing generated image: {image}')
+        product['image'] = image
+        product['imageKind'] = 'ai-generated'
+        product['description'] = f"{product['subtitle']}. Photorealistic AI-generated fashion inspiration, not a photograph of an existing item. Fabric, fit, stock and the final garment must be confirmed before purchasing."
+# User-supplied replacements update the garment metadata as well as the image.
+supplied_manifest = ROOT / 'assets/data/supplied-images.json'
+supplied_images = json.loads(supplied_manifest.read_text()) if supplied_manifest.exists() else {}
+for product in new:
+    if product['id'] in supplied_images:
+        override = supplied_images[product['id']]
+        if not (ROOT / override['image']).is_file():
+            raise FileNotFoundError(f"Missing supplied image: {override['image']}")
+        product.update(override)
 # Interleave categories, so the opening grid is as varied as the whole edit.
 ordered=photos[:]
 for i in range(18):
     ordered.extend(new[g*18+i] for g in range(6))
 CATALOG.write_text(json.dumps(ordered,indent=2)+'\n')
-print(f'{len(photos)} photo-reference styles + {len(new)} original illustrated designs = {len(ordered)} unique listings')
+print(f'{len(photos) + sum(p["imageKind"] == "supplied-photo" for p in new)} photo references + {sum(p["imageKind"] == "ai-generated" for p in new)} AI-generated images + {sum(p["imageKind"] == "illustration" for p in new)} illustrations = {len(ordered)} unique listings')
