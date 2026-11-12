@@ -8,13 +8,15 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const products = JSON.parse(read('assets/data/flash-sale.json'));
 const generatedImages = JSON.parse(read('assets/data/generated-images.json'));
 const suppliedImages = JSON.parse(read('assets/data/supplied-images.json'));
+const additionalOutfits = JSON.parse(read('assets/data/additional-outfits.json'));
+const totalListings = 120 + additionalOutfits.length;
 
-test('The Cute Edit contains 120 distinct designs, not separate colour cards', () => {
-  assert.equal(products.length, 120);
-  assert.equal(new Set(products.map(p => p.id)).size, 120);
-  assert.equal(new Set(products.map(p => p.name.toLowerCase())).size, 120);
-  assert.equal(new Set(products.map(p => p.subtitle.toLowerCase())).size, 120);
-  assert.equal(new Set(products.map(p => p.image)).size, 120);
+test('The Cute Edit contains 133 distinct designs, not separate colour cards', () => {
+  assert.equal(products.length, totalListings);
+  assert.equal(new Set(products.map(p => p.id)).size, totalListings);
+  assert.equal(new Set(products.map(p => p.name.toLowerCase())).size, totalListings);
+  assert.equal(new Set(products.map(p => p.subtitle.toLowerCase())).size, totalListings);
+  assert.equal(new Set(products.map(p => p.image)).size, totalListings);
 });
 test('All proposed prices are whole Kenyan shillings between 500 and 1,000', () => {
   for (const product of products) {
@@ -89,9 +91,41 @@ test('First eight replacements use supplied photos and matching garment details'
   assert.equal(firstEight[7].subtitle, 'Boat-neck crop & tie-wrap mini skirt');
   assert.match(read('assets/js/flash-sale.js'), /SUPPLIED PHOTO REFERENCE/);
 });
+test('Thirteen new uploads are added in attachment order with matching outfit details', () => {
+  assert.equal(additionalOutfits.length, 13);
+  assert.deepEqual(products.slice(20,33), additionalOutfits);
+  const garmentNames = [
+    'Ruched halter top & floral mini skirt',
+    'Lace cowl halter & ruffle mini skirt',
+    'Ruched halter bandeau & tiered mini skirt',
+    'Sleeveless pearl-back draped mini dress',
+    'One-shoulder bell-sleeve tie-front mini dress',
+    'Draped cape-style mini dress',
+    'Cross-halter cut-out ruched mini dress',
+    'Velvet cross-wrap crop & cut-out mini skirt',
+    'Contrast triangle bikini & lace-up wrap skirt',
+    'Floral bikini & sheer off-shoulder crop',
+    'Printed halter bikini & tie-side swim skirt',
+    'Shell-trim halter top & tie-side bikini brief',
+    'Draped mesh halter & ruched cover-up skirt set',
+  ];
+  additionalOutfits.forEach((outfit, i) => {
+    assert.equal(outfit.id, `EW-U${String(i+1).padStart(3,'0')}`);
+    assert.equal(outfit.subtitle, garmentNames[i]);
+    assert.equal(outfit.imageKind, 'supplied-photo');
+    assert.match(outfit.image, /^assets\/img\/sale\/supplied\/ew-u\d{3}\.webp$/);
+    assert.match(outfit.description, /not included/);
+    assert.match(outfit.description, /Supplied outfit reference/);
+    assert.doesNotMatch(outfit.description, /AI-generated/);
+    assert.ok(['Matching sets','Dresses','Swim & resort'].includes(outfit.category));
+  });
+  assert.equal(products.filter(p => p.imageKind === 'supplied-photo').length, 21);
+  assert.match(read('index.html'), /133 distinct style ideas/);
+  assert.match(read('flash-sale.html'), /33 photo references/);
+});
 test('All catalogue images exist locally, have unique content and remain lightweight', () => {
   const images = new Set(products.map(p => p.image));
-  assert.equal(images.size, 120);
+  assert.equal(images.size, totalListings);
   const hashes = new Set();
   let total = 0;
   for (const image of images) {
@@ -101,8 +135,8 @@ test('All catalogue images exist locally, have unique content and remain lightwe
     total += size;
     hashes.add(createHash('sha256').update(fs.readFileSync(path.join(root, image))).digest('hex'));
   }
-  assert.equal(hashes.size, 120);
-  assert.ok(total < 2 * 1024 * 1024, `Reference image payload: ${total} bytes`);
+  assert.equal(hashes.size, totalListings);
+  assert.ok(total < 3 * 1024 * 1024, `Reference image payload: ${total} bytes`);
 });
 test('Sale is reachable from the existing homepage and shares its design system', () => {
   assert.match(read('index.html'), /href="flash-sale\.html"/);
