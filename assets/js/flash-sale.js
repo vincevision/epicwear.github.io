@@ -5,6 +5,10 @@
   const $$ = (s, scope = document) => [...scope.querySelectorAll(s)];
   const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const money = n => `KSh ${n.toLocaleString('en-KE')}`;
+  const {CONTACT_URL, buildOrderMessage, buildWhatsAppUrl} = window.EpicOrder;
+  // Customer details stay in memory only, never in local storage.
+  const customerDetails = {name:'', phone:'', delivery:'', notes:''};
+  const orderSnapshot = () => ({bag, products, details:customerDetails, storeUrl:new URL('flash-sale.html', location.href).href});
   const read = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } };
   let storageWarning = false;
   const persist = () => {
@@ -128,7 +132,7 @@
       <div class="detail-copy"><p class="eyebrow">${p.id} / ${escape(p.category)}</p><h2 id="detailName">${escape(p.name)}</h2><p class="product__subtitle">${escape(p.subtitle)}</p><span class="product__price">${money(p.price)}</span><p class="detail-description">${escape(p.description)}</p>
       <label class="product__colour" for="detailColour">Colour option <select id="detailColour">${colours.map(colour => `<option value="${escape(colour)}" ${colour === chosenColour ? 'selected' : ''}>${escape(colour)}</option>`).join('')}</select></label>
       <fieldset class="size-picker"><legend>Choose your size to enquire</legend><div class="size-options">${p.sizes.map(size => `<label><input type="radio" name="size" value="${size}" ${chosenSize === size ? 'checked' : ''}><span>${size}</span></label>`).join('')}</div></fieldset>
-      <button id="addToBag" class="sale-button sale-button--primary" ${chosenSize ? '' : 'disabled'}>${chosenSize ? 'Add to enquiry bag' : 'Select a size first'} <span>↗</span></button>
+      <button id="addToBag" class="sale-button sale-button--primary" ${chosenSize ? '' : 'disabled'}>${chosenSize ? 'Add to bag' : 'Select a size first'} <span>↗</span></button>
       <p class="detail-note">Inspiration only. Selected colours and sizes are requests, not confirmed inventory. Final garment, measurements and price need studio confirmation. No payment or reservation.</p></div></div>`;
     if (!$('#productDialog').open) openDialog($('#productDialog'));
   }
@@ -141,7 +145,7 @@
     else bag.push({id:p.id, size:chosenSize, colour:chosenColour, quantity:1});
     persist(); counts();
     $('#productDialog').close();
-    notify(storageWarning ? 'Added to bag for this visit. Storage is unavailable.' : `${p.name} / ${chosenSize} added to your enquiry bag`);
+    notify(storageWarning ? 'Added to bag for this visit. Storage is unavailable.' : `${p.name} / ${chosenSize} added to your bag`);
   }
   function renderBag() {
     const items = $('#bagItems');
@@ -155,17 +159,31 @@
       return `<article class="bag-item"><img src="${p.image}" alt="${escape(imageAlt(p))}" width="70" height="95"><div><h3>${escape(p.name)}</h3><p>${escape(row.colour)} / ${row.size} / ${p.id}</p><p>${money(p.price)} each</p><div class="bag-item__actions"><div class="quantity"><button data-quantity="${index}" data-delta="-1" aria-label="Decrease ${escape(p.name)} quantity" ${row.quantity === 1 ? 'disabled' : ''}>−</button><span>${row.quantity}</span><button data-quantity="${index}" data-delta="1" aria-label="Increase ${escape(p.name)} quantity" ${row.quantity >= 10 ? 'disabled' : ''}>+</button></div><button class="remove-item" data-remove="${index}" aria-label="Remove ${escape(p.name)}, ${escape(row.colour)}, size ${row.size}">Remove</button></div></div></article>`;
     }).join('');
     const subtotal = bag.reduce((sum,row) => sum + byId(row.id).price * row.quantity, 0);
-    $('#bagSummary').innerHTML = `<div class="bag-total"><span>Proposed subtotal</span><strong>${money(subtotal)}</strong></div><p class="detail-note">Delivery not included. Prices, colourways and availability need confirmation. This bag is an enquiry, not an order. Download or copy it to share with the studio.</p><button class="sale-button sale-button--primary" id="downloadEnquiry">Download enquiry <span>↓</span></button><button class="sale-button" id="copyEnquiry">Copy enquiry <span>↗</span></button><a href="index.html#contact" class="sale-button">Contact the studio <span>↗</span></a>`;
+    $('#bagSummary').innerHTML = `<div class="bag-total"><span>Items subtotal</span><strong>${money(subtotal)}</strong></div>
+      <p class="detail-note">Delivery is quoted separately. Stock, sizes and the final total are confirmed in WhatsApp before payment.</p>
+      <fieldset class="checkout-details"><legend>Delivery details <span>(optional)</span></legend>
+        <label for="orderName">Your name<input id="orderName" data-order-field="name" autocomplete="name" maxlength="100" value="${escape(customerDetails.name)}"></label>
+        <label for="orderPhone">Contact phone<input id="orderPhone" data-order-field="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="Or use your WhatsApp number" value="${escape(customerDetails.phone)}"></label>
+        <label for="orderDelivery">Delivery location or pickup preference<input id="orderDelivery" data-order-field="delivery" autocomplete="street-address" maxlength="250" placeholder="Area, town or preferred pickup" value="${escape(customerDetails.delivery)}"></label>
+        <label for="orderNotes">Order notes<textarea id="orderNotes" data-order-field="notes" maxlength="500" rows="3" placeholder="Fit questions or delivery instructions">${escape(customerDetails.notes)}</textarea></label>
+      </fieldset>
+      <a class="sale-button sale-button--primary" id="whatsappCheckout" href="${escape(buildWhatsAppUrl(orderSnapshot()))}" target="_blank" rel="noopener noreferrer" aria-describedby="checkoutNotice">Checkout on WhatsApp <span>↗</span></a>
+      <p class="detail-note" id="checkoutNotice">Opens WhatsApp at +254 742 850 266 with your full bag and the details above. Review and press Send there. Your bag stays saved; opening WhatsApp does not confirm an order or take payment. If WhatsApp cannot open a large message, download or copy it below. Delivery details are not saved in this browser.</p>
+      <button class="sale-button" id="downloadEnquiry">Download order details <span>↓</span></button><button class="sale-button" id="copyEnquiry">Copy order details <span>↗</span></button><a href="${CONTACT_URL}" target="_blank" rel="noopener noreferrer" class="sale-button">Ask a question on WhatsApp <span>↗</span></a>`;
   }
   function enquiry() {
-    return ['EPIC WEAR — THE CUTE EDIT', 'STYLE & COLOUR ENQUIRY (not a confirmed order)', '', ...bag.map(row => {
-      const p = byId(row.id);
-      return `${p.id} | ${p.name} — ${p.subtitle}\nColour: ${row.colour} | Size requested: ${row.size} | Qty: ${row.quantity}\nProposed unit price: ${money(p.price)} | Line total: ${money(p.price * row.quantity)}\n`;
-    }), `Proposed subtotal: ${money(bag.reduce((sum,row) => sum + byId(row.id).price * row.quantity, 0))}`, '', 'Please confirm stock, colour, measurements, final pricing, delivery charges and payment arrangements.', 'Reference images are inspiration only. No payment made or reservation requested through the website.'].join('\n');
+    return buildOrderMessage(orderSnapshot());
   }
+  $('#bagSummary').addEventListener('input', event => {
+    const field = event.target.dataset.orderField;
+    if (!Object.hasOwn(customerDetails, field)) return;
+    customerDetails[field] = event.target.value;
+    const checkout = $('#whatsappCheckout');
+    if (checkout) checkout.href = buildWhatsAppUrl(orderSnapshot());
+  });
   async function copyEnquiry() {
-    try { await navigator.clipboard.writeText(enquiry()); notify('Enquiry copied. Share it with the studio.'); }
-    catch { notify('Copy unavailable in this browser. Download the enquiry instead.'); }
+    try { await navigator.clipboard.writeText(enquiry()); notify('Order details copied. Paste them into WhatsApp.'); }
+    catch { notify('Copy unavailable in this browser. Download the order details instead.'); }
   }
   function downloadEnquiry() {
     const url = URL.createObjectURL(new Blob([enquiry()], {type:'text/plain;charset=utf-8'}));
@@ -173,7 +191,7 @@
     link.href = url; link.download = 'epic-wear-cute-edit-enquiry.txt';
     document.body.append(link); link.click(); link.remove();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    notify('Enquiry downloaded. Share it with the studio.');
+    notify('Order details downloaded. Share them on WhatsApp.');
   }
   document.addEventListener('click', event => {
     const save = event.target.closest('[data-save]');
@@ -203,7 +221,7 @@
     if (event.target.name === 'size') {
       chosenSize = event.target.value;
       $('#addToBag').disabled = false;
-      $('#addToBag').innerHTML = 'Add to enquiry bag <span>↗</span>';
+      $('#addToBag').innerHTML = 'Add to bag <span>↗</span>';
     }
     if (event.target.id === 'detailColour') {
       if (colourOptions(byId(detailId)).includes(event.target.value)) chosenColour = event.target.value;
