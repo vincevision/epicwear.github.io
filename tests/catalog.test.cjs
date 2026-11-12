@@ -11,7 +11,7 @@ const suppliedImages = JSON.parse(read('assets/data/supplied-images.json'));
 const additionalOutfits = JSON.parse(read('assets/data/additional-outfits.json'));
 const totalListings = 120 + additionalOutfits.length;
 
-test('The Cute Edit contains 133 distinct designs, not separate colour cards', () => {
+test('The Cute Edit contains 135 distinct designs, not separate colour cards', () => {
   assert.equal(products.length, totalListings);
   assert.equal(new Set(products.map(p => p.id)).size, totalListings);
   assert.equal(new Set(products.map(p => p.name.toLowerCase())).size, totalListings);
@@ -91,9 +91,9 @@ test('First eight replacements use supplied photos and matching garment details'
   assert.equal(firstEight[7].subtitle, 'Boat-neck crop & tie-wrap mini skirt');
   assert.match(read('assets/js/flash-sale.js'), /SUPPLIED PHOTO REFERENCE/);
 });
-test('Thirteen new uploads are added in attachment order with matching outfit details', () => {
-  assert.equal(additionalOutfits.length, 13);
-  assert.deepEqual(products.slice(20,33), additionalOutfits);
+test('Fifteen new uploads are added in attachment order with matching outfit details', () => {
+  assert.equal(additionalOutfits.length, 15);
+  assert.deepEqual(products.slice(20,35), additionalOutfits);
   const garmentNames = [
     'Ruched halter top & floral mini skirt',
     'Lace cowl halter & ruffle mini skirt',
@@ -108,6 +108,8 @@ test('Thirteen new uploads are added in attachment order with matching outfit de
     'Printed halter bikini & tie-side swim skirt',
     'Shell-trim halter top & tie-side bikini brief',
     'Draped mesh halter & ruched cover-up skirt set',
+    'Striped crochet bell-sleeve mini dress',
+    'Bardot bell-sleeve knit playsuit',
   ];
   additionalOutfits.forEach((outfit, i) => {
     assert.equal(outfit.id, `EW-U${String(i+1).padStart(3,'0')}`);
@@ -117,11 +119,11 @@ test('Thirteen new uploads are added in attachment order with matching outfit de
     assert.match(outfit.description, /not included/);
     assert.match(outfit.description, /Supplied outfit reference/);
     assert.doesNotMatch(outfit.description, /AI-generated/);
-    assert.ok(['Matching sets','Dresses','Swim & resort'].includes(outfit.category));
+    assert.ok(['Matching sets','Dresses','Swim & resort','Playsuits'].includes(outfit.category));
   });
-  assert.equal(products.filter(p => p.imageKind === 'supplied-photo').length, 21);
-  assert.match(read('index.html'), /133 distinct style ideas/);
-  assert.match(read('flash-sale.html'), /33 photo references/);
+  assert.equal(products.filter(p => p.imageKind === 'supplied-photo').length, 23);
+  assert.match(read('index.html'), /135 distinct style ideas/);
+  assert.match(read('flash-sale.html'), /35 photo references/);
 });
 test('All catalogue images exist locally, have unique content and remain lightweight', () => {
   const images = new Set(products.map(p => p.image));

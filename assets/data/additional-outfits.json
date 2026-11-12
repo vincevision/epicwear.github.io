@@ -258,5 +258,45 @@
       "XXL"
     ],
     "description": "An ivory swim-inspired set with a gathered bandeau-style top and briefs under a draped mesh halter overlay and a ruched mesh mini skirt with side ties. The supplied image includes an illustrated styling reference. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U014",
+    "name": "Ivory Ripple",
+    "subtitle": "Striped crochet bell-sleeve mini dress",
+    "category": "Dresses",
+    "image": "assets/img/sale/supplied/ew-u014.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Ivory",
+    "swatch": "#eee9e1",
+    "price": 950,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "An ivory-white striped crochet mini dress with long flared bell sleeves, a deep scalloped V neckline, a small gold-tone bow-style clasp and a front keyhole. The supplied image includes an illustrated styling reference. Jewellery, belts, bags and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U015",
+    "name": "Scarlet Knit",
+    "subtitle": "Bardot bell-sleeve knit playsuit",
+    "category": "Playsuits",
+    "image": "assets/img/sale/supplied/ew-u015.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Scarlet",
+    "swatch": "#be2632",
+    "price": 1000,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A scarlet-red knitted shorts playsuit with a wide folded off-shoulder Bardot neckline, a fitted waist and long bell sleeves with tie details. Jewellery, belts, bags and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
   }
 ]
