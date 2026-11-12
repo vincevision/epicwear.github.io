@@ -332,5 +332,15 @@ for product in new:
 ordered=photos[:]
 for i in range(18):
     ordered.extend(new[g*18+i] for g in range(6))
+# Add uploaded outfits without overwriting any of the existing 120 listings.
+# Keep the first eight prior photo replacements in place, then feature new arrivals.
+additional_manifest = ROOT / 'assets/data/additional-outfits.json'
+additional_outfits = json.loads(additional_manifest.read_text()) if additional_manifest.exists() else []
+for product in additional_outfits:
+    if not (ROOT / product['image']).is_file():
+        raise FileNotFoundError(f"Missing outfit image: {product['image']}")
+ordered[20:20] = additional_outfits
+if len({p['id'] for p in ordered}) != len(ordered):
+    raise ValueError('Duplicate product ID in catalogue')
 CATALOG.write_text(json.dumps(ordered,indent=2)+'\n')
-print(f'{len(photos) + sum(p["imageKind"] == "supplied-photo" for p in new)} photo references + {sum(p["imageKind"] == "ai-generated" for p in new)} AI-generated images + {sum(p["imageKind"] == "illustration" for p in new)} illustrations = {len(ordered)} unique listings')
+print(f'{len(photos) + len(additional_outfits) + sum(p["imageKind"] == "supplied-photo" for p in new)} photo references + {sum(p["imageKind"] == "ai-generated" for p in new)} AI-generated images + {sum(p["imageKind"] == "illustration" for p in new)} illustrations = {len(ordered)} unique listings')

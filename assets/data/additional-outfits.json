@@ -1,0 +1,262 @@
+[
+  {
+    "id": "EW-U001",
+    "name": "Hibiscus Honey",
+    "subtitle": "Ruched halter top & floral mini skirt",
+    "category": "Matching sets",
+    "image": "assets/img/sale/supplied/ew-u001.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Yellow & orange",
+    "swatch": "#e9d961",
+    "price": 850,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A yellow halter top with a sweetheart ruched bust and split pointed hem, paired with an orange-floral ruched mini skirt with side drawstrings. The supplied image includes an illustrated styling reference. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U002",
+    "name": "Crimson Cascade",
+    "subtitle": "Lace cowl halter & ruffle mini skirt",
+    "category": "Matching sets",
+    "image": "assets/img/sale/supplied/ew-u002.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Burgundy",
+    "swatch": "#8f243e",
+    "price": 950,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A burgundy lace halter with a deep draped cowl front and bead detail, paired with a layered ruffle mini skirt and side ties. The supplied image includes an illustrated styling reference. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U003",
+    "name": "Onyx Ruffle",
+    "subtitle": "Ruched halter bandeau & tiered mini skirt",
+    "category": "Matching sets",
+    "image": "assets/img/sale/supplied/ew-u003.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Onyx",
+    "swatch": "#28272b",
+    "price": 900,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A black halter bandeau with a gathered centre and a matching tiered ruffle mini skirt with long side ties. The supplied image includes an illustrated styling reference. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U004",
+    "name": "Cocoa Pearl",
+    "subtitle": "Sleeveless pearl-back draped mini dress",
+    "category": "Dresses",
+    "image": "assets/img/sale/supplied/ew-u004.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Chocolate",
+    "swatch": "#704b3b",
+    "price": 950,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A chocolate-brown sleeveless mini dress with a high front neckline, softly gathered draping through the waist, and a low cowl back framed by pearl-style chains. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U005",
+    "name": "Ivory Drama",
+    "subtitle": "One-shoulder bell-sleeve tie-front mini dress",
+    "category": "Dresses",
+    "image": "assets/img/sale/supplied/ew-u005.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Ivory",
+    "swatch": "#eee9e1",
+    "price": 1000,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "An ivory-white asymmetric mini dress with a draped one-shoulder neckline, dramatic bell sleeves and a gathered tie-front skirt with a long hanging sash. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U006",
+    "name": "Midnight Drape",
+    "subtitle": "Draped cape-style mini dress",
+    "category": "Dresses",
+    "image": "assets/img/sale/supplied/ew-u006.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Onyx",
+    "swatch": "#28272b",
+    "price": 950,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A black fitted mini dress with a draped cape-style shoulder overlay, sheer-look upper panels and long flowing side panels. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U007",
+    "name": "Mocha Twist",
+    "subtitle": "Cross-halter cut-out ruched mini dress",
+    "category": "Dresses",
+    "image": "assets/img/sale/supplied/ew-u007.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Chocolate",
+    "swatch": "#704b3b",
+    "price": 900,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A dark-brown mini dress with crossed halter straps, a large front cut-out, and a close-fitting ruched skirt with an adjustable side tie. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U008",
+    "name": "Velvet Merlot",
+    "subtitle": "Velvet cross-wrap crop & cut-out mini skirt",
+    "category": "Matching sets",
+    "image": "assets/img/sale/supplied/ew-u008.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Merlot",
+    "swatch": "#792b46",
+    "price": 950,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A deep wine-coloured velvet two-piece with crossed off-shoulder bands on the crop top and matching crossed panels over a cut-out mini skirt. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U009",
+    "name": "Pink Rebel",
+    "subtitle": "Contrast triangle bikini & lace-up wrap skirt",
+    "category": "Swim & resort",
+    "image": "assets/img/sale/supplied/ew-u009.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Pink & black",
+    "swatch": "#dca4b9",
+    "price": 900,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A pink-and-black triangle halter bikini with contrast cross motifs, matching briefs and a short wrap cover-up skirt with an open lace-up side. No brand affiliation is claimed. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U010",
+    "name": "Hibiscus Blush",
+    "subtitle": "Floral bikini & sheer off-shoulder crop",
+    "category": "Swim & resort",
+    "image": "assets/img/sale/supplied/ew-u010.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Pink floral",
+    "swatch": "#e6a4b5",
+    "price": 950,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A pink halter bikini and tie-side briefs with hibiscus-style floral prints, styled with a sheer off-shoulder cropped cover-up. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U011",
+    "name": "Coral Cove",
+    "subtitle": "Printed halter bikini & tie-side swim skirt",
+    "category": "Swim & resort",
+    "image": "assets/img/sale/supplied/ew-u011.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Coral & white",
+    "swatch": "#d97979",
+    "price": 850,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A coral-and-white printed halter bikini top with a knotted centre and matching ruched swim skirt with side ties and a ruffled hem. The supplied image includes an illustrated styling reference. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U012",
+    "name": "Shell Serenade",
+    "subtitle": "Shell-trim halter top & tie-side bikini brief",
+    "category": "Swim & resort",
+    "image": "assets/img/sale/supplied/ew-u012.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Cloud",
+    "swatch": "#e4dfd3",
+    "price": 1000,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "A white textured halter top with open front straps and hanging shell-style trim, paired with matching tie-side bikini briefs and coordinating shell details. The supplied image includes an illustrated styling reference. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  },
+  {
+    "id": "EW-U013",
+    "name": "Pearl Tide",
+    "subtitle": "Draped mesh halter & ruched cover-up skirt set",
+    "category": "Swim & resort",
+    "image": "assets/img/sale/supplied/ew-u013.webp",
+    "imageKind": "supplied-photo",
+    "colour": "Ivory",
+    "swatch": "#eee9e1",
+    "price": 950,
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "description": "An ivory swim-inspired set with a gathered bandeau-style top and briefs under a draped mesh halter overlay and a ruched mesh mini skirt with side ties. The supplied image includes an illustrated styling reference. Jewellery, bags, shoes and other styling accessories are not included. Supplied outfit reference; confirm the actual garment, colour, measurements and availability with the studio."
+  }
+]
